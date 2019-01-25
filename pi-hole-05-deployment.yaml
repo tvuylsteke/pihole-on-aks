@@ -17,14 +17,14 @@ spec:
         app: pihole
     spec:
       containers:
-        - env:
-          - name: ServerIP
-            value: 10.10.10.10
-          - name: WEBPASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: piholesecret
-                key: WEBPASSWORD
+      - env:
+        - name: ServerIP
+          value: 23.97.222.118
+        - name: WEBPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: piholesecret
+              key: WEBPASSWORD
         image: pihole/pihole:latest
         imagePullPolicy: IfNotPresent
         name: pihole
@@ -56,16 +56,16 @@ spec:
         - mountPath: /etc/dnsmasq.d/02-custom.conf
           name: custom-dnsmasq
           subPath: 02-custom.conf
-        dnsPolicy: ClusterFirst
-        restartPolicy: Always
-        schedulerName: default-scheduler
-        securityContext: {}
-        terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
       volumes:
-        - name: config
-          persistentVolumeClaim:
-            claimName: pihole-config
-        - configMap:
-            defaultMode: 420
-            name: pihole-custom-dnsmasq
-          name: custom-dnsmasq
+      - name: config
+        persistentVolumeClaim:
+          claimName: pihole-config
+      - configMap:
+          defaultMode: 420
+          name: pihole-custom-dnsmasq
+        name: custom-dnsmasq
