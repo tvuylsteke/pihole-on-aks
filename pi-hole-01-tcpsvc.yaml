@@ -6,18 +6,15 @@ metadata:
   name: pihole
 spec:  
   ports:
-  - name: pihole-http
-    nodePort: 31173
+  - name: pihole-https    
     port: 80
     protocol: TCP
     targetPort: pihole-http
-  - name: pihole-https
-    nodePort: 32320
+  - name: pihole-https    
     port: 443
     protocol: TCP
     targetPort: pihole-https
-  - name: dns
-    nodePort: 31795
+  - name: dns    
     port: 53
     protocol: TCP
     targetPort: dns
