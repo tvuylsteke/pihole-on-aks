@@ -8,13 +8,11 @@ metadata:
 spec:
   externalTrafficPolicy: Cluster
   ports:
-  - name: dns-udp
-    nodePort: 30482
+  - name: dns-udp    
     port: 53
     protocol: UDP
     targetPort: dns-udp
-  - name: client-udp
-    nodePort: 31077
+  - name: client-udp    
     port: 67
     protocol: UDP
     targetPort: client-udp
