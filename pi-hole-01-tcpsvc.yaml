@@ -6,7 +6,7 @@ metadata:
   name: pihole
 spec:  
   ports:
-  - name: pihole-https    
+  - name: pihole-http    
     port: 80
     protocol: TCP
     targetPort: pihole-http
